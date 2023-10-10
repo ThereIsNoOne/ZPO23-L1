@@ -1,15 +1,34 @@
 package exerciseone;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ex1 {
+
+    /**
+     * Program calculates max height and range of throw.
+     * User have to input velocity (m/s) and angle (deg).
+     * @param args command line arguments.
+     * @throws IllegalArgumentException when user input is invalid.
+     */
     public static void main(String[] args) {
+        double v0;
+        double angle;
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Podaj prędkość: ");
-        double v0 = scanner.nextDouble();
+        try {
+            v0 = scanner.nextDouble();
+        } catch (InputMismatchException exception){
+            throw new IllegalArgumentException("Invalid input for velocity value.");
+        }
         System.out.println("Podaj kąt uderzenia: ");
-        double angle = scanner.nextDouble();
+        try {
+            angle = scanner.nextDouble();
+        } catch (InputMismatchException exception) {
+            throw new IllegalArgumentException("Invalid input for angle value.");
+        }
         double angle_radian = Math.toRadians(angle);
 
         scanner.close();
