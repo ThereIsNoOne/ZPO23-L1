@@ -1,12 +1,24 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ex4 {
+
+    /**
+     * Program prints out to console multiplication table, for range [0, n], where n is integer
+     * entered by user.
+     * @param args command line arguments.
+     * @throws IllegalArgumentException when input cannot be transformed into integer.
+     */
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Podaj liczbę całkowitą z przedziału [1,9]: ");
-        int n = scanner.nextInt();
-
+        int n;
+        try {
+            n = scanner.nextInt();
+        } catch (InputMismatchException exception) {
+            throw new IllegalArgumentException("Entered value is not an integer");
+        }
         scanner.close();
 
         if ((n > 9) || (n < 1)) {
