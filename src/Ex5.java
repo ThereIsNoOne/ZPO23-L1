@@ -1,19 +1,46 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ex5 {
+
+    /**
+     * Program calculates equation of line going through two points, entered by user.
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
+
+        double pierwszyPunktX;
+        double pierwszyPunktY;
+        double drugiPunktX;
+        double drugiPunktY;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Podaj współrzędne pierwszego punktu: ");
         System.out.println("Współrzędna x");
-        double pierwszyPunktX = scanner.nextDouble();
+        try {
+            pierwszyPunktX = scanner.nextDouble();
+        } catch (InputMismatchException exception) {
+            throw new IllegalArgumentException("Cannot parse entered number!");
+        }
         System.out.println("Współrzędna y");
-        double pierwszyPunktY = scanner.nextDouble();
+        try {
+            pierwszyPunktY = scanner.nextDouble();
+        } catch (InputMismatchException exception) {
+            throw new IllegalArgumentException("Cannot parse entered number!");
+        }
         System.out.println("Podaj współrzędne drugiego punktu: ");
         System.out.println("Współrzędna x");
-        double drugiPunktX = scanner.nextDouble();
+        try {
+            drugiPunktX = scanner.nextDouble();
+        } catch (InputMismatchException exception) {
+            throw new IllegalArgumentException("Cannot parse entered number!");
+        }
         System.out.println("Współrzędna y");
-        double drugiPunktY = scanner.nextDouble();
+        try {
+            drugiPunktY = scanner.nextDouble();
+        } catch (InputMismatchException exception) {
+            throw new IllegalArgumentException("Cannot parse entered number!");
+        }
 
         scanner.close();
 
@@ -28,6 +55,15 @@ public class Ex5 {
         }
     }
 
+    /**
+     * Calculates coefficients of line connecting two points.
+     * @param pierwszyPunktX x coordinate of first point.
+     * @param pierwszyPunktY y coordinate of first point.
+     * @param drugiPunktX x coordinate of second point.
+     * @param drugiPunktY y coordinate of second point.
+     * @return coefficients of line in form [a, b] where y = ax + b
+     * @throws IllegalArgumentException when first point equals to second.
+     */
     public static double[] wspolczynniki(double pierwszyPunktX,
                                          double pierwszyPunktY,
                                          double drugiPunktX,
