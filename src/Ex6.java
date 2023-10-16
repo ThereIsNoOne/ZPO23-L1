@@ -1,13 +1,38 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ex6 {
+
+    /**
+     * Program to print date (given by user) in format DD-MM-YYYY.
+     * @param args command line arguments.
+     * @throws IllegalArgumentException when input is not a number.
+     */
     public static void main(String[] args) {
+        int dzien;
+        int miesiac;
+        int rok;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Podaj dzień, miesiąc oraz rok: ");
-        int dzien = scanner.nextInt();
-        int miesiac = scanner.nextInt();
-        int rok = scanner.nextInt();
+        try{
+
+            dzien = scanner.nextInt();
+        } catch (InputMismatchException exception) {
+            throw new IllegalArgumentException("Day has to be an integer.");
+        }
+        try{
+
+            miesiac = scanner.nextInt();
+        } catch (InputMismatchException exception) {
+            throw new IllegalArgumentException("Month has to be an integer.");
+        }
+        try{
+
+            rok = scanner.nextInt();
+        } catch (InputMismatchException exception) {
+            throw new IllegalArgumentException("Year has to be an integer.");
+        }
 
         try {
             String data2 = data(dzien, miesiac, rok);
@@ -17,6 +42,14 @@ public class Ex6 {
         }
     }
 
+    /**
+     * Returns date from given day, month and year in format DD-MM-YYYY.
+     * @param dzien day of the month.
+     * @param miesiac month of the year.
+     * @param rok year.
+     * @return formatted date.
+     * @throws IllegalArgumentException When day or month are invalid (i.e. do not exist).
+     */
     public static String data(int dzien, int miesiac, int rok) {
         int dopuszczalnyDzien = 31;
 

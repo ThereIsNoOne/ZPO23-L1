@@ -35,7 +35,7 @@ public class Ex1 {
             System.out.println("Nieprawidłowe dane wejściowe.");
         } else {
             double distance = (Math.pow(v0, 2) * Math.sin(2 * angle_radian)) / 9.81;
-            double maxHeight = (Math.pow(v0, 2) * Math.sin(2 * angle_radian) * Math.sin(2 * angle_radian) / (2 * 9.81));
+            double maxHeight = (Math.pow(v0, 2) * Math.sin(angle_radian) * Math.sin(angle_radian) / (2 * 9.81));
 
             System.out.println("Zasięg: " + distance + " m");
             System.out.println("Maksymalna wysokość: " + maxHeight + " m");
