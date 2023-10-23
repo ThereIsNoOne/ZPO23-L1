@@ -63,6 +63,16 @@ public class ComplexNumber extends Vector2D{
     }
 
     /**
+     * Calculates power of complex number (z^n).
+     * @param number base of the power.
+     * @param power exponent of the power.
+     * @return new complex number (z^n).
+     */
+    public static ComplexNumber power(ComplexNumber number, double power) {
+        return number.power(power);
+    }
+
+    /**
      * Multiplies two complex numbers.
      * @param other complex number to multiply by.
      * @return result of multiplication
