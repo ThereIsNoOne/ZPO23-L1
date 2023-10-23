@@ -105,6 +105,17 @@ public class ComplexNumber extends Vector2D{
     }
 
     /**
+     * Divide two complex numbers.
+     * @param nominator nominator.
+     * @param denominator denominator.
+     * @return result of division.
+     * @throws RuntimeException when denominator is zero.
+     */
+    public static ComplexNumber divide(ComplexNumber nominator, ComplexNumber denominator) {
+        return nominator.divide(denominator);
+    }
+
+    /**
      * Generates new complex number based on modulus and argument.
      * @param modulus modulus of complex number
      * @param argument argument of complex number (in radians)
