@@ -26,6 +26,7 @@ public class Main {
         System.out.printf("%s - %s = %s\n", zero, number, zero.subtract(number));
         System.out.printf("%s / %s = %s\n", number, newNumber, number.divide(newNumber));
 
+
         try {
             number.divide(zero);
         } catch (RuntimeException e) {
@@ -49,4 +50,5 @@ public class Main {
                 new ComplexNumber(5, 3.45),
                 newNumber.equals(new ComplexNumber(5, 3.45)));
     }
+
 }
