@@ -1,4 +1,4 @@
-package list3.interfaceimplementation;
+package list3.abstractimplementation;
 
 /**
  * Forces class to have discount related methods.

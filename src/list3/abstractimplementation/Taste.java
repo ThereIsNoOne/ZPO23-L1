@@ -1,8 +1,5 @@
-package list3.interfaceimplementation;
+package list3.abstractimplementation;
 
-/**
- * Tastes with information about fruitiness.
- */
 public enum Taste {
     APPLE(true),
     STRAWBERRY(true),
