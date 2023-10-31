@@ -21,13 +21,7 @@ public class Lollipop extends Product implements Discountable {
      * is negative
      */
     public Lollipop(String name, int quantity, int price, Taste taste) {
-        super(name, price, quantity);
-        if (quantity <= 0) {
-            throw new IllegalArgumentException("Quantity should be more than 0.");
-        }
-        if (price < 0) {
-            throw new IllegalArgumentException("Price should be more than 0.");
-        }
+        super(name, quantity, price);
         this.taste = taste;
     }
 

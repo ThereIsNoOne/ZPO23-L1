@@ -35,7 +35,7 @@ public class Main {
                 250,
                 Taste.APPLE);
 
-        Warehouse warehouse = new Warehouse(
+        Warehouse<Product> warehouse = new Warehouse<>(
                 new ArrayList<>() {{
                     add(wedelChocolate);
                     add(lollipop);
@@ -61,6 +61,15 @@ public class Main {
             } else {
                 System.out.printf("Unspecified product class: %s", product.getClass());
             }
+        }
+
+        Warehouse<Chocolate> chocolateWarehouse = new Warehouse<>(new ArrayList<>() {{
+            add(milkaChocolate);
+            add(wedelChocolate);
+        }});
+
+        for (Chocolate chocolate : chocolateWarehouse) {
+            System.out.println(chocolate);
         }
     }
 }

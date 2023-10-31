@@ -29,13 +29,7 @@ public class Chocolate extends Product implements Discountable {
                      int price,
                      int quantity,
                      HashMap<String, Integer> ingredients) {
-        super(name, price, quantity);
-        if (quantity <= 0) {
-            throw new IllegalArgumentException("Quantity should be more than 0.");
-        }
-        if (price < 0) {
-            throw new IllegalArgumentException("Price should be more than 0.");
-        }
+        super(name, quantity, price);
         if (!checkIngredients(ingredients)) {
             throw new IllegalArgumentException("Percentage should sum up to 100%");
         }

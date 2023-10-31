@@ -11,6 +11,12 @@ public abstract class Product {
     protected final String name;
 
     public Product(String name, int quantity, int price) {
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("Quantity should be more than 0.");
+        }
+        if (price < 0) {
+            throw new IllegalArgumentException("Price should be more than 0.");
+        }
         this.name = name;
         this.quantity = quantity;
         this.price = price;

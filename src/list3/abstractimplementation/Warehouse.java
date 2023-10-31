@@ -8,8 +8,8 @@ import java.util.function.Consumer;
 /**
  * Class represents warehouse.
  */
-public class Warehouse implements Iterable<Product> {
-    private final List<Product> products;
+public class Warehouse<T extends Product> implements Iterable<T> {
+    private final List<T> products;
 
     /**
      * Initialize warehouse object.
@@ -17,7 +17,7 @@ public class Warehouse implements Iterable<Product> {
      *                 extended with {@code addProduct} method or products can be
      *                 removed with {@code removeProduct} method.
      */
-    public Warehouse(List<Product> products) {
+    public Warehouse(List<T> products) {
         this.products = products;
     }
 
@@ -26,7 +26,7 @@ public class Warehouse implements Iterable<Product> {
      * @param index index of product
      * @return product at index.
      */
-    public Product get(int index) {
+    public T get(int index) {
         return products.get(index);
     }
 
@@ -34,7 +34,7 @@ public class Warehouse implements Iterable<Product> {
      * Adds new product to products list.
      * @param product product to be added.
      */
-    public void addProduct(Product product) {
+    public void addProduct(T product) {
         products.add(product);
     }
 
@@ -42,7 +42,7 @@ public class Warehouse implements Iterable<Product> {
      * Removes product from products list.
      * @param product product to be removed.
      */
-    public void removeProduct(Product product) {
+    public void removeProduct(T product) {
         products.remove(product);
     }
 
@@ -52,7 +52,7 @@ public class Warehouse implements Iterable<Product> {
      * @return an Iterator.
      */
     @Override
-    public Iterator<Product> iterator() {
+    public Iterator<T> iterator() {
         return products.iterator();
     }
 
@@ -77,7 +77,7 @@ public class Warehouse implements Iterable<Product> {
      * @since 1.8
      */
     @Override
-    public void forEach(Consumer<? super Product> action) {
+    public void forEach(Consumer<? super T> action) {
         Iterable.super.forEach(action);
     }
 
@@ -99,7 +99,7 @@ public class Warehouse implements Iterable<Product> {
      * @since 1.8
      */
     @Override
-    public Spliterator<Product> spliterator() {
+    public Spliterator<T> spliterator() {
         return Iterable.super.spliterator();
     }
 }

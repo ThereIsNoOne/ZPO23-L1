@@ -23,13 +23,7 @@ public class ChewingGum extends Product implements Discountable {
      * price is negative.
      */
     public ChewingGum(String name, int price, int quantity, boolean isBubble) {
-        super(name, price, quantity);
-        if (quantity <= 0) {
-            throw new IllegalArgumentException("Quantity should be more than 0.");
-        }
-        if (price < 0) {
-            throw new IllegalArgumentException("Price should be more than 0.");
-        }
+        super(name, quantity, price);
 
         this.isBubble = isBubble;
     }
