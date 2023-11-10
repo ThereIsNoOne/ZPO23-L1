@@ -12,7 +12,7 @@ public final class ComplexNumberFactory {
     public static ComplexNumber getComplexNumber(String complexNumberString) {
         if (!complexStringIsValid(complexNumberString)) {
             throw new InvalidComplexNumberRepresentation(String.format(
-                    "Invalid complex number given. Was %s, should match (a + jb) pattern",
+                    "Invalid complex number given. Was %s, should match a + jb pattern",
                     complexNumberString
             ));
         }

@@ -50,8 +50,14 @@ public class Main {
                 new ComplexNumber(5, 3.45),
                 newNumber.equals(new ComplexNumber(5, 3.45)));
 
-        ComplexNumber userNumber = ComplexNumberFactory.getComplexNumber();
-        System.out.printf("User complex number is %s\n", userNumber);
+        ComplexNumber userNumber;
+        try {
+            userNumber = ComplexNumberFactory.getComplexNumber();
+        } catch (InvalidComplexNumberRepresentation | NumberFormatException exception) {
+            System.out.println(exception.getMessage());
+            return;
+        }
+            System.out.printf("User complex number is %s\n", userNumber);
     }
 
 
