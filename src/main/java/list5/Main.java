@@ -12,6 +12,21 @@ public class Main {
         exerciseTwo();
         System.out.println("\nStarting exercise three demo:\n");
         exerciseThree();
+        System.out.println("\nStarting exercise four demo:\n");
+        exerciseFour();
+    }
+
+    private static void exerciseFour() {
+        SentenceAnalyzer sentenceAnalyzer = new SentenceAnalyzer("Long sentence for test." +
+                " It has to contain all words breaking like \\n for example here.\nAnd now" +
+                " we have new sentence separated from previous sentence only by .\\n. Let's check, how it works?");
+
+        System.out.printf("Sentence was analyzed:\nNumber od words:\n%s\nNumber of chars:\n%s\n",
+                sentenceAnalyzer.getNumberOfWords(), sentenceAnalyzer.getNumberOfChars());
+        SentenceAnalyzer sentenceAnalyzer2 = new SentenceAnalyzer("Test test test\nTest\nTest?test");
+
+        System.out.printf("Sentence was analyzed:\nNumber od words:\n%s\nNumber of chars:\n%s\n",
+                sentenceAnalyzer2.getNumberOfWords(), sentenceAnalyzer2.getNumberOfChars());
     }
 
     private static void exerciseThree() {
