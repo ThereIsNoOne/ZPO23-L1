@@ -15,6 +15,27 @@ public class Main {
     }
 
     private static void exerciseThree() {
+        Subject analysis = new Subject("Mathematical analysis", "Issac Newton", 2, 5, Subject.SubjectType.LECTURE);
+        Subject biology = new Subject("Advanced biology", "Gregor Mendel", 1, 3, Subject.SubjectType.EXERCISE);
+        Subject analysisA2 = new Subject("Mathematical analysis", "Carl F. Gauss", 3, 10, Subject.SubjectType.LECTURE);
+
+        SubjectStore store = new SubjectStore(new HashMap<>() {{
+            put("MA000123W", analysis);
+            put("BL00424C", biology);
+            put("MA000423W", analysisA2);
+        }});
+
+        Subject biologyLab = new Subject("Advanced biology", "Gregor Mendel", 3, 4, Subject.SubjectType.LABORATORY);
+        System.out.printf("Subjects:\n%s\n", store);
+
+        store.add("BL000423L", biologyLab);
+        System.out.printf("Subjects after addition:\n%s\n", store);
+
+        store.set("BL000423L", new Subject("Advanced microbiology", "Julie Theriot", 3, 5, Subject.SubjectType.LABORATORY));
+        System.out.printf("Subjects after change:\n%s\n", store);
+
+        store.remove("BL000423L");
+        System.out.printf("Subjects after removal:\n%s\n", store);
     }
 
     private static void exerciseOne() {
