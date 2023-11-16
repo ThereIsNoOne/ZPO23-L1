@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SubjectStore {
-    private Map<String, Subject> subjects = new HashMap<>();
+    private Map<String, Subject> subjects;
 
     public SubjectStore(Map<String, Subject> subjects) {
         this.subjects = subjects;
