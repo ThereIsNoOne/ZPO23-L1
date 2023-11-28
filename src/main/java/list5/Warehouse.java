@@ -30,6 +30,10 @@ public class Warehouse<T extends Product> {
         products.forEach(this::addProductToMap);
     }
 
+    /**
+     * Add product to storage map, based on product type.
+     * @param product product to be added.
+     */
     private void addProductToMap(T product) {
         if (product instanceof Lollipop) {
             products.get(ProductType.LOLLIPOP).add(product);
@@ -67,6 +71,10 @@ public class Warehouse<T extends Product> {
         products.get(type).remove(product);
     }
 
+    /**
+     * String representation of warehouse.
+     * @return string representation of warehouse.
+     */
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
