@@ -30,15 +30,7 @@ public class Main {
     }
     
     private static void exerciseTwo() {
-        Subject analysis = new Subject("Mathematical analysis", "Issac Newton", 2, 5, SubjectType.LECTURE, EndsWith.EXAM);
-        Subject biology = new Subject("Advanced biology", "Gregor Mendel", 1, 3, SubjectType.EXERCISE, EndsWith.CREDIT);
-        Subject analysisA2 = new Subject("Mathematical analysis", "Carl F. Gauss", 3, 10, SubjectType.LECTURE, EndsWith.CREDIT);
-
-        SubjectStore store = new SubjectStore(new HashMap<>() {{
-            put("MA000123W", analysis);
-            put("BL00424C", biology);
-            put("MA000423W", analysisA2);
-        }});
+        SubjectStore store = getSubjectStore();
 
         Subject biologyLab = new Subject("Advanced biology", "Gregor Mendel", 3, 4, SubjectType.LABORATORY, EndsWith.CREDIT);
         System.out.printf("Subjects:\n%s\n", store);
@@ -51,5 +43,17 @@ public class Main {
 
         store.remove("BL000423L");
         System.out.printf("Subjects after removal:\n%s\n", store);
+    }
+
+    private static SubjectStore getSubjectStore() {
+        Subject analysis = new Subject("Mathematical analysis", "Issac Newton", 2, 5, SubjectType.LECTURE, EndsWith.EXAM);
+        Subject biology = new Subject("Advanced biology", "Gregor Mendel", 1, 3, SubjectType.EXERCISE, EndsWith.CREDIT);
+        Subject analysisA2 = new Subject("Mathematical analysis", "Carl F. Gauss", 3, 10, SubjectType.LECTURE, EndsWith.CREDIT);
+
+        return new SubjectStore(new HashMap<>() {{
+            put("MA000123W", analysis);
+            put("BL00424C", biology);
+            put("MA000423W", analysisA2);
+        }});
     }
 }

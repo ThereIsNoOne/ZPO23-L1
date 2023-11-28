@@ -30,7 +30,7 @@ public class Vector2D {
      * @return angle in radians between vector and OX axis.
      */
     public double directionAngle() {
-        return Math.atan(yCoordinate /xCoordinate);
+        return Math.atan2(yCoordinate, xCoordinate);
     }
 
     /**

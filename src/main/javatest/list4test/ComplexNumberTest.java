@@ -246,6 +246,12 @@ public class ComplexNumberTest {
     }
 
     @Test
+    public void negativeComplexIFromStringAfterTest() {
+        assertEquals(ComplexNumberFactory.getComplexNumber("-12.3 - 3.3i"),
+                new ComplexNumber(-12.3, -3.3));
+    }
+
+    @Test
     public void invalidComplexFromStringTest() {
         assertThrows(InvalidComplexNumberRepresentation.class, () -> {
             ComplexNumberFactory.getComplexNumber("abc");

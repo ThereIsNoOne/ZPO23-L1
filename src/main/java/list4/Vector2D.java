@@ -4,6 +4,7 @@ package list4;
  * Represents 2D vector.
  */
 public class Vector2D {
+
     protected double xCoordinate;
     protected double yCoordinate;
 
@@ -31,7 +32,7 @@ public class Vector2D {
      */
     public double
     directionAngle() {
-        return Math.atan(yCoordinate /xCoordinate);
+        return Math.atan2(yCoordinate, xCoordinate);
     }
 
     /**
