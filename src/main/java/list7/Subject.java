@@ -1,5 +1,12 @@
 package list7;
 
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 /**
  * Class representing subject.
  */
@@ -75,7 +82,86 @@ public class Subject {
                 endsWith.name());
     }
 
-    public void putToJson(String outputPath) {
-
+    public static Subject getFromJson() {
+        File file = new File("./src/main/resources/subject.json");
+        if (!file.exists()) {
+            throw new RuntimeException("Could not find file:" + file.getPath());
+        }
+        return parseFromJson(file);
     }
+
+    public static Subject getFromJson(String path) {
+        File file = new File(path);
+        if (!file.exists()) {
+            throw new RuntimeException("Could not find file:" + file.getAbsolutePath());
+        }
+        return parseFromJson(file);
+    }
+
+    private static Subject parseFromJson(File file) {
+        Subject subject;
+        try (FileReader reader = new FileReader(file)) {
+            JSONTokener jsonTokener = new JSONTokener(reader);
+            JSONObject subjectObject = new JSONObject(jsonTokener);
+
+            String name = subjectObject.getString("name");
+            String teacher = subjectObject.getString("teacher");
+            int hoursPerWeek = subjectObject.getInt("hoursPerWeek");
+            int ectsAmount = subjectObject.getInt("ectsAmount");
+            SubjectType type = SubjectType.valueOf(subjectObject.getString("subjectType"));
+            EndsWith endsWith = EndsWith.valueOf(subjectObject.getString("endsWith"));
+            subject = new Subject(name, teacher, hoursPerWeek, ectsAmount, type, endsWith);
+        } catch (IOException e) {
+            throw new RuntimeException("Could not read file:" + e.getMessage());
+        }
+        return subject;
+    }
+
+    public void putToJson(String outputPath) {
+        File outputFile = new File(outputPath);
+
+        if (!outputFile.exists()) {
+            try {
+                Files.createFile(Paths.get(outputPath));
+            } catch (IOException e) {
+                throw new RuntimeException("Could not create file: " + e.getMessage());
+            }
+        }
+
+        parseToJson(outputFile);
+    }
+
+    public void putToJson() {
+        File outputFile = new File(
+                String.format("./src/main/resources/subject.json")
+        );
+
+        if (!outputFile.exists()) {
+            try {
+                Files.createFile(Paths.get(outputFile.getPath()));
+            } catch (IOException e) {
+                throw new RuntimeException("Could not create file: " + e.getMessage());
+            }
+        }
+
+        parseToJson(outputFile);
+    }
+
+    private void parseToJson(File outputFile) {
+        JSONObject subjectJson = new JSONObject();
+        subjectJson.put("name", name);
+        subjectJson.put("teacher", teacher);
+        subjectJson.put("hoursPerWeek", hoursPerWeek);
+        subjectJson.put("ectsAmount", EctsAmount);
+        subjectJson.put("subjectType", type.name());
+        subjectJson.put("endsWith", endsWith.name());
+
+        try (FileWriter writer = new FileWriter(outputFile)) {
+            writer.write(subjectJson.toString(4));
+        } catch (IOException e) {
+            throw new RuntimeException("Could not write to file: " + e.getMessage());
+        }
+    }
+
+
 }

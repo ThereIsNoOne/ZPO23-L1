@@ -1,0 +1,8 @@
+{
+    "ectsAmount": 4,
+    "teacher": "Professor",
+    "hoursPerWeek": 15,
+    "name": "Math",
+    "endsWith": "EXAM",
+    "subjectType": "LABORATORY"
+}
