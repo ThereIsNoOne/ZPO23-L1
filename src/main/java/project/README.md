@@ -1,6 +1,6 @@
 # Project
 
-Project can be found ![here](https://github.com/ThereIsNoOne/MedicamentTracker.git).
+Project can be found [here](https://github.com/ThereIsNoOne/MedicamentTracker.git).
 
 ## Documentation
 
